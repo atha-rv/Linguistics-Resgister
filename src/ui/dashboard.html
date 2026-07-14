@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Register</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <h1>Register</h1>
+    <span class="lbl" id="corpusSize">empty corpus</span>
+    <span class="sub lbl" id="engine"></span>
+  </header>
+
+  <section class="card" id="draftCard">
+    <h2>Draft <span class="note">paste your own writing to place it against the corpus</span></h2>
+    <textarea id="draft" placeholder="Paste a draft. Sixty words is the floor; three hundred gives a stable reading."></textarea>
+    <div class="popup row" style="display:flex;gap:8px;margin-top:12px">
+      <button id="measure">Measure draft</button>
+      <button id="clearDraft" class="ghost">Clear</button>
+      <span class="lbl" id="draftMeta" style="margin-left:auto;align-self:center"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Register space <span class="note" id="typeNote">Biber's six dimensions, z-scored against LOB/London-Lund</span></h2>
+    <div id="meters"></div>
+  </section>
+
+  <section class="card" id="tableCard">
+    <h2>Metrics <span class="note">corpus median and interquartile range · your draft's percentile</span></h2>
+    <div id="table"></div>
+  </section>
+
+  <section class="card" id="clusterCard">
+    <h2>Taste <span class="note" id="clusterNote"></span></h2>
+    <p class="verdict" id="verdict"></p>
+    <svg class="scatter" id="scatter"></svg>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section class="card">
+    <h2>Corpus <span class="note"><button id="wipe" class="ghost" style="padding:3px 8px;font-size:9px">Delete everything</button></span></h2>
+    <div id="docs"></div>
+  </section>
+
+</div>
+<script type="module" src="dashboard.js"></script>
+</body>
+</html>

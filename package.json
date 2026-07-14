@@ -1,0 +1,14 @@
+{
+  "name": "register",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node build.mjs" },
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "idb": "^8.0.3",
+    "wink-eng-lite-web-model": "^1.8.1",
+    "wink-nlp": "^2.4.0"
+  },
+  "devDependencies": { "esbuild": "^0.25.0" }
+}

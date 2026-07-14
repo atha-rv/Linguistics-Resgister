@@ -5,7 +5,7 @@ Register is a Chrome extension that measures a draft against a corpus you choose
 Every saved text and every new draft is scored on 27 metrics. Biber's six register dimensions (involved vs. informational, narrative vs. non-narrative, situated vs. explicit reference, neutral vs. persuasive, concrete vs. abstract, edited vs. on-line). Sentence rhythm as a distribution, so mean, standard deviation, skew, and autocorrelation, not just average length. Lexical diversity via MTLD and MATTR, which stay stable as texts get longer, where TTR does not. Word concreteness and frequency norms. Grammatical markers: nominalization rate, passive rate, modal rate.
 
 Most feedback on prose stops at "sounds off." Register returns something you can act on: this draft is 3 SD more abstract than your corpus and uses half as many short sentences. That is a testable claim, and the edit either closes the gap or it doesn't. The corpus can be other writers you want to sound like, or your own back-catalogue when the goal is staying consistent with yourself.
-Cohesion metrics are deliberately absent. Connective density and lexical overlap are cheap to compute and show little relationship to judged writing quality, so they were left out rather than shipped as filler/
+Cohesion metrics are deliberately absent. Connective density and lexical overlap are cheap to compute and show little relationship to judged writing quality, so they were left out rather than shipped as filler.
 
 ---
 

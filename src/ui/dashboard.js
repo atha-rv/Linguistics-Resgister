@@ -187,6 +187,19 @@ function projectDraft(Z, rows, draftObj) {
   return loadings.map(c => centred.reduce((s, x, j) => s + x * c[j], 0));
 }
 
+// how far the draft's own 27 metrics sit from the corpus you actually built,
+// not from Biber's fixed norms — the comparison the emulation workflow is about
+function corpusFlags(draftMetrics, limit = 4) {
+  if (mets.length < 6) return null;
+  const rows = mets.map(m => vectorOf(m));
+  const [, mus, sds] = standardize(rows);
+  const z = {};
+  METRIC_KEYS.forEach((k, j) => { z[k] = (draftMetrics[k] - mus[j]) / sds[j]; });
+  const over = METRIC_KEYS.filter(k => z[k] > 2).sort((a, b) => z[b] - z[a]).slice(0, limit);
+  const under = METRIC_KEYS.filter(k => z[k] < -2).sort((a, b) => z[a] - z[b]).slice(0, limit);
+  return (over.length || under.length) ? { over, under } : null;
+}
+
 /* ── corpus list ────────────────────────────────────────────── */
 function renderDocs() {
   if (!docs.length) {
@@ -228,6 +241,9 @@ $('measure').onclick = async () => {
   const flags = [];
   if (a.overused.length) flags.push('overuses ' + a.overused.slice(0, 4).join(' '));
   if (a.underused.length) flags.push('underuses ' + a.underused.slice(0, 4).join(' '));
+  const cf = corpusFlags(a.metrics);
+  if (cf?.over.length) flags.push('vs corpus, high on ' + cf.over.join(' '));
+  if (cf?.under.length) flags.push('vs corpus, low on ' + cf.under.join(' '));
   const warn = a.nWords < 300 ? 'under 300 words, reading is noisy · ' : '';
   $('draftMeta').textContent = `${a.nWords} words · ${a.nSentences} sentences · ${warn}${flags.join(' · ')}`;
   await refresh();

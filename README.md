@@ -1,8 +1,20 @@
 # Register
 
-A Chrome extension that keeps a corpus of writing you like and tells you where your drafts sit inside it.
+Register measures prose instead of grading it.
 
-Everything runs client-side. Nothing leaves the browser.
+Save writing you admire into a local corpus — no account, no upload, nothing leaves the browser. Register scores every saved text and every draft across 27 metrics — Biber's six register dimensions, sentence rhythm as a distribution (mean, SD, skew, and whether short sentences follow long ones on purpose or wander at random), vocabulary diversity that holds up across text length, word concreteness and frequency, and grammar rates like nominalization and passive voice — then reports how far the draft sits from the corpus, in standard deviations.
+
+Not "this sounds off." *"This draft is 2.8 SD more abstract than your corpus, and its sentence lengths don't vary the way the rest of it does."* That's specific enough to check, disagree with, and fix in one pass.
+
+---
+
+## Who this is for
+
+Two situations create the same problem: you need a draft to match a register you didn't invent, and right now the only tool you have is reading it out loud and hoping.
+
+**Writing with an LLM in the loop, shipping the result somewhere it has to read as yours.** Model output has a signature — sentence length that barely varies, vocabulary that plateaus early, a lean toward abstraction and nominalization over concrete, active phrasing. None of that trips a spell-checker. Register's rhythm autocorrelation and MTLD/MATTR metrics were built to catch exactly this kind of flatness, regardless of what produced the draft — compare against a corpus of writing (including your own, from before) that doesn't have that signature.
+
+**Matching someone else's register on purpose.** Ghostwriters, agency copywriters, anyone doing a client-voice pass. "Does this sound like them" currently has no better answer than a gut check and a hope the client agrees. A corpus built from the target's own writing turns that into a number.
 
 ---
 
